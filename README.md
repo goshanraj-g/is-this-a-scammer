@@ -3,6 +3,18 @@ Have you ever been waiting for an important call, only to answer and realize… 
 is this a Scammer? helps you identify scam phone numbers instantly, so you never have to second-guess who's on the other end of the line
 
 # How does it work?
+### Number Validation & Metadata Extraction
+- Check if the number is valid, and determine the carrier, country and type (landline, VoIP, mobile, etc...) APIs: Twilio Lookup API, NumVerify API
+### Cross-Checking with Scam Databases
+- Compare the number against government scam databases (FCC, Ofcom) and crowd-sourced databases (Hiya, Truecaller) APIs: Hiya API, Truecaller API, FCC / Ofcom Scam Reports
+### Community-Driven Scam Reports
+- Community can report scam numbers and provide details (ex. "IRS Scam", "Tech Support Scam")
+- Reports can be stored in PostgreSQL database and help flag suspicious numbers
+### Frequency-Based Scam Detection
+- We track how often a number is reported and flag it as high risk if reports spike
+- Frequently searched numbers are cached using Redis for fast lookups
+### AI-Based Scam Detection (Future Feature)
+- Use a machine learning model to analyze scam call patterns, and detect potiential scams even before they're reported
 
 # 🛠 Tech Stack
 ## Frontend
@@ -20,7 +32,3 @@ is this a Scammer? helps you identify scam phone numbers instantly, so you never
 - NumVerify API – Checks number validity and region
 - Hiya API / Truecaller API – Accesses scam reports and caller IDs
 - FCC / Ofcom Scam Databases – Uses government scam reports for verification
-## Hosting & Deployment
-Frontend: Vercel or Netlify
-Backend: AWS Lambda, DigitalOcean, or Heroku
-Database: Supabase (for PostgreSQL with authentication) or Firebase
