@@ -2,7 +2,7 @@
 
 **Identify scam callers instantly and avoid fraudulent calls before you pick up.**  
 
-![Scam Call Detection](https://via.placeholder.com/800x400)  
+![Scam Call Detection]()  
 
 ## 🚀 Overview  
 
